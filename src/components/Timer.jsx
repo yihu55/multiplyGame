@@ -15,20 +15,11 @@ const start=()=>{
 }
 let updatedS=time[1].s,updatedM=time[0].m;
 const run=()=>{
-  //  if(updatedMs===100){
-  //   updatedS++;
-  //   updatedMs=0;
-  //  }
+
    if(updatedS===60){
     updatedM++;
     updatedS=0
    }
-
-  //  if(updatedM===60){
-  //   updatedH++;
-  //   updatedM=0
-  //  }
-   //updatedMs++
    updatedS++
    return setTime([{m:updatedM},{s:updatedS}])
 }
@@ -51,7 +42,7 @@ const reset=()=>{
       const key=Object.keys(obj);
       const value=Object.values(obj);
   
-      return <Square height={'100px'} width={'50%'} fontSize={'50px'} key={index}>{value}{key}</Square>
+      return <Square height={'50px'} width={'50%'} fontSize={'40px'} key={index}>{value}{key}</Square>
     })}</div>
  
     </>

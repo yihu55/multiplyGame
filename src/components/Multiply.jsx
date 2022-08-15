@@ -33,23 +33,24 @@ function Multiply(){
     setNumber1(randomInt(1,9));
     setNumber2(randomInt(1,9));
     setCorrect(true)
+    
   }, [])
 
   const checkResult=(e)=>{
     if(e.key==='Enter'){
       e.preventDefault();
       if(inputResult===result){
-        Sound(right)
         points.current=points.current+5;
         setInputResult('');
         setCorrect(true);
         setNumber1(randomInt(1,9));
         setNumber2(randomInt(1,9));
+        Sound(right)
+
       }
       else if(inputResult!==result){
         Sound(wrong)
         setCorrect(false)
-        return
       }
       if(points.current===100){
         Sound(clapping)

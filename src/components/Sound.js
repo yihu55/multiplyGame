@@ -1,19 +1,12 @@
 import { Howl, Howler } from 'howler';
+
 export default function Sound(src) {
   const sound = new Howl({
-    src,
+    src: src,
   });
 
   sound.play();
   console.log('playsound');
   Howler.volume(0.5);
+  // Howler.autoSuspend = false;
 }
-// const RenderButtonAndSound=()=>{
-//     return audioclips.map((soundObj,index)=>{
-//         return(
-//             <button key={index} onClick={()=>SoundPlay(soundObj.sound)}>
-//                 {soundObj.label}
-//             </button>
-//         )
-//     })
-// }

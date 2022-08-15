@@ -1,8 +1,8 @@
 import styled, { css, keyframes } from 'styled-components';
 export const ResultText = styled.div`
   color: green;
-  height: 300px;
-  font-size: 200px;
+  height: 180px;
+  font-size: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,12 +12,12 @@ export const ResultText = styled.div`
 const animate = keyframes`
     0% {
       color: lightgreen;
-      font-size: 100px;
+      font-size: 70px;
     }
 
     100% {
       color: green;
-      font-size: 200px;
+      font-size: 150px;
     }
   `;
 export const ResultInt = styled(ResultText)`
