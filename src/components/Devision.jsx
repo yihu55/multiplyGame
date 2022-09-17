@@ -11,7 +11,7 @@ import {Col } from 'react-bootstrap';
 import randomInt from '../randomInt';
 
 
-function Multiply(){
+function Devision(){
 
   const [inputResult,setInputResult]=useState('')
   const [number1,setNumber1]=useState('');
@@ -20,14 +20,22 @@ function Multiply(){
 
   const points=useRef(0);
   
-  const result=(number1*number2).toString();
+  const result=(number1/number2).toString();
+
+  let random1=randomInt(1,20)
+  let random2=randomInt(1,9)
  
   useEffect(() => {
-    setNumber1(randomInt(1,9));
-    setNumber2(randomInt(1,9));
+
+    setNumber1(random1);
+    setNumber2(random2);
     setCorrect(true)
     
   }, [])
+  
+  do{
+    random1=randomInt(1,20)
+} while(random1<random2||random1%random2!==0)
 
   const checkResult=(e)=>{
     if(e.key==='Enter'){
@@ -36,8 +44,9 @@ function Multiply(){
         points.current=points.current+5;
         setInputResult('');
         setCorrect(true);
-        setNumber1(randomInt(1,9));
-        setNumber2(randomInt(1,9));
+        setNumber1(random1);
+        setNumber2(random2);
+      
         Sound(right)
 
       }
@@ -59,7 +68,7 @@ function Multiply(){
   <Col>
     <form onKeyDown={checkResult}>
       <Square height={'250px'} width={'250px'} fontSize={'200px'}>{number1}</Square>
-      <Symbol >x</Symbol>
+      <Symbol >/</Symbol>
       <Square height={'250px'} width={'250px'} fontSize={'200px'}>{number2}</Square> 
       <Symbol>=</Symbol>
       {correct ?
@@ -77,4 +86,4 @@ function Multiply(){
 
   </>;
 }
-export {Multiply};
+export {Devision};

@@ -11,7 +11,7 @@ import {Col } from 'react-bootstrap';
 import randomInt from '../randomInt';
 
 
-function Multiply(){
+function Substraction(){
 
   const [inputResult,setInputResult]=useState('')
   const [number1,setNumber1]=useState('');
@@ -20,7 +20,7 @@ function Multiply(){
 
   const points=useRef(0);
   
-  const result=(number1*number2).toString();
+  const result=(number1-number2).toString();
  
   useEffect(() => {
     setNumber1(randomInt(1,9));
@@ -59,7 +59,7 @@ function Multiply(){
   <Col>
     <form onKeyDown={checkResult}>
       <Square height={'250px'} width={'250px'} fontSize={'200px'}>{number1}</Square>
-      <Symbol >x</Symbol>
+      <Symbol >-</Symbol>
       <Square height={'250px'} width={'250px'} fontSize={'200px'}>{number2}</Square> 
       <Symbol>=</Symbol>
       {correct ?
@@ -77,4 +77,4 @@ function Multiply(){
 
   </>;
 }
-export {Multiply};
+export {Substraction};
