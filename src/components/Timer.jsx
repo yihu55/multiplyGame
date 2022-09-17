@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { StyledButton } from '../styles/StyledButton';
 import { Square } from '../styles/styles';
+import COLORS from '../styles/constants';
 
 export default function Timer() {
 
@@ -30,21 +31,24 @@ const stop=()=>{
 
 const reset=()=>{
   clearInterval(interv);
-  setTime([{m:0},{s:0}])
+  setTime([{m:0},{s:0}]);
+  window.location.reload(); 
  
 }
   return (
-    <>
-    <StyledButton bg={'lightgreen'} onClick={start} disabled={toggle}>start</StyledButton>
-    <StyledButton bg={'red'}onClick={stop}>stop</StyledButton>
-    <StyledButton bg={'yellow'} onClick={reset}>reset</StyledButton>
-    <div>{time.map((obj,index)=>{
-      const key=Object.keys(obj);
-      const value=Object.values(obj);
-  
-      return <Square height={'50px'} width={'50%'} fontSize={'40px'} key={index}>{value}{key}</Square>
-    })}</div>
- 
-    </>
+
+            <>
+              {time.map((obj,index)=>{
+                                const key=Object.keys(obj);
+                                const value=Object.values(obj);
+                            
+                              return <Square height={'100px'}  width={'10%'} fontSize={'40px'} key={index}>{value}{key}</Square>
+                          
+                          })}
+                <StyledButton bg={COLORS.darkgreen} onClick={start} disabled={toggle}>start</StyledButton>
+                <StyledButton bg={COLORS.lightbeige}onClick={stop}>stop</StyledButton>
+                <StyledButton bg={COLORS.yellow} onClick={reset}>reset</StyledButton>
+         
+           </>
   )
 }

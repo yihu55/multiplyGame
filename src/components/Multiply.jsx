@@ -7,7 +7,7 @@ import clapping from '../audioclips/clapping.mp3';
 import right from '../audioclips/correct.wav';
 import wrong from '../audioclips/wrong.mp3';
 import Sound from './Sound';
-
+import {Col } from 'react-bootstrap';
 
 
 function Multiply(){
@@ -17,8 +17,6 @@ function Multiply(){
   const [number2,setNumber2]=useState('');
   const [correct,setCorrect]=useState(false);
 
-
-  //const render=useRef(0);
   const points=useRef(0);
   
   const result=(number1*number2).toString();
@@ -49,8 +47,9 @@ function Multiply(){
 
       }
       else if(inputResult!==result){
-        Sound(wrong)
-        setCorrect(false)
+        Sound(wrong);
+        setInputResult('');
+        setCorrect(false);
       }
       if(points.current===100){
         Sound(clapping)
@@ -59,25 +58,28 @@ function Multiply(){
   }
 
   return <>
-  <div>
-  <form onKeyDown={checkResult}>
-    <Square height={'300px'} width={'23%'} fontSize={'200px'}>{number1}</Square>
-     <Symbol>x</Symbol>
-     <Square height={'300px'} width={'23%'} fontSize={'200px'}>{number2}</Square> 
-     <Symbol>=</Symbol>
-     {correct ?
-     <Input type='text' border={'5px solid green'} value={inputResult} onChange={(e)=>setInputResult(e.target.value)}/>
-     :
-     <Input type='text' border={'5px solid red'} value={inputResult} onChange={(e)=>setInputResult(e.target.value)}/>}
-  </form>
-  
-  <div>
-  <ResultText>points:</ResultText>
-  {correct ?<ResultInt animation> {points.current}</ResultInt>:<ResultInt> {points.current}</ResultInt> }
-  </div>
-  </div>
-{/* 
-  <p>render: {render.current++}</p> */}
+ 
+
+
+  <Col>
+    <form onKeyDown={checkResult}>
+      <Square height={'250px'} width={'250px'} fontSize={'200px'}>{number1}</Square>
+      <Symbol >x</Symbol>
+      <Square height={'250px'} width={'250px'} fontSize={'200px'}>{number2}</Square> 
+      <Symbol>=</Symbol>
+      {correct ?
+      <Input type='text' border={'5px solid green'} value={inputResult} onChange={(e)=>setInputResult(e.target.value)}/>
+      :
+      <Input type='text' border={'5px solid red'} value={inputResult} onChange={(e)=>setInputResult(e.target.value)}/>}
+    </form>
+  </Col>
+  <Col>
+        
+      <ResultText>points:</ResultText>
+      {correct ?<ResultInt animation> {points.current}</ResultInt>:<ResultInt> {points.current}</ResultInt> }
+      
+   </Col>
+
   </>;
 }
 export {Multiply};

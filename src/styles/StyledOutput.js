@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
+import COLORS from './constants';
 export const ResultText = styled.div`
-  color: green;
+  color: ${COLORS.darkgreen};
   height: 180px;
   font-size: 120px;
   display: flex;
