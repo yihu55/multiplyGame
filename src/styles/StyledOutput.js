@@ -1,14 +1,16 @@
-import styled, { css, keyframes } from 'styled-components';
-import COLORS from './constants';
+import styled, { css, keyframes } from "styled-components";
+import COLORS from "./constants";
 export const ResultText = styled.div`
   color: ${COLORS.darkgreen};
   height: 180px;
-  font-size: 120px;
+  font-size: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50%;
   float: left;
+  @media (max-width: 480px) {
+    font-size: 50px;
+  }
 `;
 const animate = keyframes`
     0% {

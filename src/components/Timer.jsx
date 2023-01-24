@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import { StyledButton } from '../styles/StyledButton';
-import { Square } from '../styles/styles';
+import { Square, SquareTime } from '../styles/styles';
 import COLORS from '../styles/constants';
+import { Col } from 'react-bootstrap';
 
 export default function Timer() {
 
@@ -37,18 +38,18 @@ const reset=()=>{
 }
   return (
 
-            <>
+    <Col style={{display:'flex',alignItems:'stretch',justifyContent:'center'}}>
               {time.map((obj,index)=>{
                                 const key=Object.keys(obj);
                                 const value=Object.values(obj);
                             
-                              return <Square height={'100px'}  width={'10%'} fontSize={'40px'} key={index}>{value}{key}</Square>
+                return <SquareTime key={index}>{value}{key}</SquareTime>
                           
                           })}
                 <StyledButton bg={COLORS.darkgreen} onClick={start} disabled={toggle}>start</StyledButton>
                 <StyledButton bg={COLORS.lightbeige}onClick={stop}>stop</StyledButton>
                 <StyledButton bg={COLORS.yellow} onClick={reset}>reset</StyledButton>
          
-           </>
+           </Col>
   )
 }

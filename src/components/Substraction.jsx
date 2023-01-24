@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState,useEffect,useRef} from 'react';
-import { Square, Input} from '../styles/styles';
+import { Square, Input, Form} from '../styles/styles';
 import { Symbol } from '../styles/StyledSymbol';
 import { ResultText,ResultInt } from '../styles/StyledOutput';
 import clapping from '../audioclips/clapping.mp3';
@@ -57,19 +57,17 @@ function Substraction(){
 
 
   <Col>
-    <form onKeyDown={checkResult}>
-      <Square height={'250px'} width={'250px'} fontSize={'200px'}>{number1}</Square>
+    <Form onKeyDown={checkResult}>
+      <Square>{number1}</Square>
       <Symbol >-</Symbol>
-      <Square height={'250px'} width={'250px'} fontSize={'200px'}>{number2}</Square> 
+      <Square>{number2}</Square> 
       <Symbol>=</Symbol>
       {correct ?
       <Input type='text' border={'5px solid green'} value={inputResult} onChange={(e)=>setInputResult(e.target.value)}/>
       :
       <Input type='text' border={'5px solid red'} value={inputResult} onChange={(e)=>setInputResult(e.target.value)}/>}
-    </form>
-  </Col>
-  <Col>
-        
+    </Form>
+
       <ResultText>points:</ResultText>
       {correct ?<ResultInt animation> {points.current}</ResultInt>:<ResultInt> {points.current}</ResultInt> }
       

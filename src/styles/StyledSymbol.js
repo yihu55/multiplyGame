@@ -1,13 +1,18 @@
-import styled from 'styled-components';
-import COLORS from './constants';
+import styled from "styled-components";
+import COLORS from "./constants";
 
 export const Symbol = styled.span`
   color: ${COLORS.darkgreen};
   background-color: ${COLORS.lightbeige};
-  height: 250px;
-  width: 250px;
-  font-size: 100px;
-  float: left;
+  height: 105px;
+  width: 105px;
+  font-size: 25px;
+  margin-top: 50px;
+  @media (max-width: 480px) {
+    height: 100px;
+    width: 100px;
+    font-size: 50px;
+  }
   display: flex;
   justify-content: center;
   align-items: center;

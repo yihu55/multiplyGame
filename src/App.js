@@ -1,19 +1,16 @@
-import { Container, Row, Col } from 'react-bootstrap';
-import { Addition } from './components/Addition';
-import { Multiply } from './components/Multiply';
-import SelectSymbol from './components/SelectSymbol';
-import Timer from './components/Timer';
+import { Container, Row, Col } from "react-bootstrap";
+import SelectSymbol from "./components/SelectSymbol";
+import Timer from "./components/Timer";
 
 const App = () => {
   return (
-    <Container fluid>
+    <Container>
       <Row>
-        <Col>
-          <Timer />
-          <SelectSymbol />
-        </Col>
+        <Timer />
       </Row>
-      <Row>{/* <Multiply /> */}</Row>
+      <Row>
+        <SelectSymbol />
+      </Row>
     </Container>
   );
 };
